@@ -1,6 +1,6 @@
 Date; Data_sype; source; Num_entry; Processed
 2022.0926; protein_ligand complex; PDBBind(2020)all+refinded; []; False #error
-2022.0927; protein_ligand complex; CSAR-HiQ-2011; []; False
+2022.0927; protein_ligand complex; CSAR-HiQ-2011, benchmark; []; False
 2022.0927; protein_ligand complex; DUD-E; []; False
 2022.0927; protein_ligand complex; Binding-MOAD; []; False
 2022.0927; protein_ligand complex; ; LIT-PCBA; []; False\
