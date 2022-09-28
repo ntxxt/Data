@@ -6,3 +6,22 @@ Date; Data_sype; source; Num_entry; Processed
 2022.0927; protein_ligand complex; ; LIT-PCBA; []; False\
 2022.0927; protein_ligand complex; ; CASF-2016,2013,2007.; []; False\
 
+2022.0928 sort/processed 
+1. PDBBind dataset (general set-v2020), with proprocessed binding data, 
+'INDEX_general_PL_data.2020'
+2. PDBBind dataset (refined set-v2020), with proprocessed binding data, 
+'INDEX_refined_data.2020'
+3. CSAR-HiQ set(v2010)
+'set1.csv', 'set2.csv', 'DROP_LIST.TXT' (check)
+4. CSAR_HIQ update set (2019-2011)
+'set3.csv'
+5. DUD-E PDB_ID summary
+'DUD-E.txt'
+6. LIT-PCAB summary
+'LIT-PCAB.txt'
+7. CASF-2007
+'PDBbind_core_set_v2007.2.lst'
+8. CASF-2016
+'CASF-2013.txt'
+9. Binding_MOAD
+'Binding_MOAD.csv'
