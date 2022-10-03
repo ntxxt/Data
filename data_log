@@ -25,3 +25,5 @@ Date; Data_sype; source; Num_entry; Processed
 'CASF-2013.txt'
 9. Binding_MOAD
 'Binding_MOAD.csv'
+10.TransformerCPI datasets-only protein sequence, ligand smile, and class label
+'/transformerCPI/data'
