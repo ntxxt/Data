@@ -7,9 +7,9 @@ Date; Data_sype; source; Num_entry; Processed
 2022.0927; protein_ligand complex; ; CASF-2016,2013,2007.; []; False\
 
 2022.0928 sort/processed 
-1. PDBBind dataset (general set-v2020), with proprocessed binding data, 
+1. PDBBind dataset (general set-v2020), with pre-processed binding data, 
 'INDEX_general_PL_data.2020'
-2. PDBBind dataset (refined set-v2020), with proprocessed binding data, 
+2. PDBBind dataset (refined set-v2020), with pre-processed binding data, 
 'INDEX_refined_data.2020'
 3. CSAR-HiQ set(v2010)
 'set1.csv', 'set2.csv', 'DROP_LIST.TXT' (check)
