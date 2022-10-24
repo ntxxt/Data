@@ -1,8 +1,8 @@
-
 import requests
 import json
 import os
 import pypdb
+import statistics
 from datetime import date
 
 
@@ -54,31 +54,50 @@ def get_activity(overlap):
                 f_w.write(str(line))
 
 def get_activity(not_in):
-    multi_acctivity= []
     string_list = []
     for pdb_id in not_in:
         describe = pypdb.get_info(pdb_id)
         resolution = describe['pdbx_vrpt_summary']['pdbresolution']
         affinity_info = describe['rcsb_binding_affinity']
-        if len(affinity_info) == 1:
-            affinity_info = affinity_info[0]
-            affinity = affinity_info['value']
-            type = affinity_info['type']
-            unit = affinity_info['unit']
-            comp_id = affinity_info['comp_id']
-            string = f'{pdb_id} {resolution} {affinity} {type} {unit} {comp_id}'
-            string_list.append(string)
-        else:
-            print(pdb_id)
-            multi_acctivity.append(pdb_id)
-    
+        list_ = [i for i in range((len(affinity_info))) if affinity_info[i]['type'].lower() == 'ki' or affinity_info[i]['type'].lower() == 'kd']
+        if len(list_) == 1 or len(list_) == 2:
+            affinity_info = affinity_info[list_[0]]
+            #affinity = affinity_info['value']
+            #type = affinity_info['type']
+            #unit = affinity_info['unit']
+            #comp_id = affinity_info['comp_id']
+            #string = f'{pdb_id} {resolution} {affinity} {type} {unit} {comp_id}'
+            #string_list.append(string)
+            #take the medium f
+        if len(list_) > 2:
+            dict_ = {}
+            for i in range(len(list_)):
+                dict_[i] = affinity_info[i]['value']
+
+            if len(list_) % 2 != 0:
+                median = statistics.median(dict_.values())
+                id = [id for id,value in dict_.items() if value == median]
+                #print(id, pdb_id,'aa')
+                affinity_info = affinity_info[id[0]]
+            else:
+                median = statistics.median(dict_.values())
+                res_key, _ = min(dict_.items(), key=lambda x: abs(median - x[1]))
+                #print(res_key,pdb_id,'bb')
+                affinity_info = affinity_info[res_key]
+
+        affinity = affinity_info['value']
+        type = affinity_info['type']
+        unit = affinity_info['unit']
+        comp_id = affinity_info['comp_id']
+        string = f'{pdb_id} {resolution} {affinity} {type} {unit} {comp_id}'
+        print(string)
+        string_list.append(string)
+
     file_name = str(date.today()).replace('-', '') + '_clean_activity.txt'
     file_path = '/Users/xiaotongxu/structural_datasets/pdb'
     with open(os.path.join(file_path, file_name), 'w') as f:
         for string in string_list:
             f.write("%s\n" % string)
-    return multi_acctivity
-
 
 
 
@@ -87,8 +106,8 @@ def get_activity(not_in):
 pdb_ids = get_pdbids()
 not_in, pdb_bind = checking(pdb_ids)
 overlap  = list(set(pdb_ids)^set(not_in))
-get_activity(overlap)
-multi_acctivity = get_activity(not_in)
+#get_activity(overlap)
+get_activity(not_in)
 #print(len(a))
 #print(a[1:4])
 #get_pdbids()
