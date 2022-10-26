@@ -21,9 +21,13 @@ Date; Data_sype; source; Num_entry; Processed
 'LIT-PCAB.txt'
 7. CASF-2007
 'PDBbind_core_set_v2007.2.lst'
-8. CASF-2016
+8. CASF-2013
 'CASF-2013.txt'
 9. Binding_MOAD
 'Binding_MOAD.csv'
 10.TransformerCPI datasets-only protein sequence, ligand smile, and class label
 '/transformerCPI/data'
+11. CASF-2016
+'CASF-2013.txt'
+12. dataset generatedby me 2022.10.26
+'20221026_clean_activity.txt'
